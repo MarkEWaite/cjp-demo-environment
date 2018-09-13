@@ -33,7 +33,6 @@ services:
         -Dorg.apache.commons.jelly.tags.fmt.timeZone=America/New_York"
       JENKINS_OPTS: "--prefix=/cjoc"
     volumes:
-      - ./data/cjoc:/var/jenkins_home
       - ./data/backups:/backups
 
   cje-prod:
@@ -53,7 +52,6 @@ services:
         "
       JENKINS_OPTS: "--prefix=/cje-prod"
     volumes:
-      - ./data/cje-prod:/var/jenkins_home
       - ./data/backups:/backups
 
   ssh-slave:
