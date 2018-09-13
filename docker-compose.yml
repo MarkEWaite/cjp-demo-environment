@@ -55,8 +55,6 @@ services:
     volumes:
       - ./data/cje-prod:/var/jenkins_home
       - ./data/backups:/backups
-    volumes_from:
-      - ssh-slave
 
   ssh-slave:
     container_name: ssh-slave
@@ -67,7 +65,6 @@ services:
     command: ["${SSH_SLAVE_COMMAND}"]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock #aka "docker socket volume mapping"
-      - ${MAVEN_CACHE} #to persist and share the precious maven cache
 
   #https://hub.docker.com/r/verb/socat/
   #clever way to expose host docker engine to internal services
